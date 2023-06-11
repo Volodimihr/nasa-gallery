@@ -20,8 +20,6 @@ const App = () => {
     const data = await res.json();
     setPages(Math.trunc(data.collection.metadata.total_hits / 100)+1);
     setItems(data.collection.items);
-
-    console.log('Page: ' + page);
   },
     [searchWord, mediaType, page, pages]);
 
@@ -30,8 +28,6 @@ const App = () => {
   }, [getData]);
 
   const handlePagination = (i) => {
-    console.log('i: ' + i);
-    console.log('handle: ' + (page + i));
     if((page + i) >= 1 && (page + i) <= pages)
       setPage(page + i);
   }
