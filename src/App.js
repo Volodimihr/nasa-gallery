@@ -30,7 +30,6 @@ const App = () => {
   }, [getData]);
 
   const handlePagination = (i) => {
-    //const p = page + i;
     console.log('i: ' + i);
     console.log('handle: ' + (page + i));
     if((page + i) >= 1 && (page + i) <= pages)
