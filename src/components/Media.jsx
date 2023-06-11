@@ -27,7 +27,7 @@ const Media = ({ item }) => {
 
   if (media && item.data[0].media_type === "image") {
     return (
-      <div className="">
+      <div className='border border-info rounded-1'>
         <OverlayTrigger
           trigger={['hover', 'focus']}
           placement="bottom"
@@ -42,7 +42,7 @@ const Media = ({ item }) => {
     );
   } else if (media && item.data[0].media_type === "video") {
     return (
-      <div>
+      <div className='border border-info rounded-1'>
         <OverlayTrigger
           trigger={['hover', 'focus']}
           placement="bottom"
@@ -68,7 +68,7 @@ const Media = ({ item }) => {
               {item.data[0].description}
             </Popover>
           } >
-          <audio controls height={200}>
+          <audio controls height='200px'>
             <source src={media} type="audio/mp4" />
           </audio>
         </OverlayTrigger>

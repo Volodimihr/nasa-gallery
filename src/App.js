@@ -18,22 +18,25 @@ const App = () => {
       `https://images-api.nasa.gov/search?q=${searchWord}&media_type=${mediaType}&page=${page}`
     );
     const data = await res.json();
-    setPages(Math.trunc(data.collection.metadata.total_hits / 100)+1);
+    setPages(Math.trunc(data.collection.metadata.total_hits / 100) + 1);
     setItems(data.collection.items);
   },
-    [searchWord, mediaType, page, pages]);
+    [searchWord, mediaType, page]);
 
   useEffect(() => {
     getData();
   }, [getData]);
 
   const handlePagination = (i) => {
-    if((page + i) >= 1 && (page + i) <= pages)
+    if ((page + i) >= 1 && (page + i) <= pages)
       setPage(page + i);
   }
 
   return (
-    <div className="container justify-content-center">
+    <div className="container">
+      <div className="d-flex justify-content-center mt-3" >
+        <img alt="logo" src="/nasa_space_shuttle_universe_explore_icon_white.png" />
+      </div>
       <SearchForm searchWordCallBack={setSearchWord} searchTypeCallBack={setMediaType} />
       <Gallery items={items} />
       <div className="d-flex justify-content-center fixed-bottom">
